@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        header {
+            text-align: center;
+            background-color: #3498db;
+            padding: 10px;
+            color: #fff;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .education,
+        .experience {
+            margin-bottom: 20px;
+        }
+
+        .education h3,
+        .experience h3 {
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .margin-bottom {
+            margin-bottom: 15px;
+        }
+
+        .border-bottom {
+            border-bottom: 2px solid #3498db;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Sravanthi Dandu <img style="float:right" width="70px" height="60px" src="C:\Users\sd2756\Desktop\image.jpg"></h1>
+        <p>Web Developer</p>
+    </header>
+
+    <section class="contact">
+        <div>
+            <h2 class="margin-bottom"></h2>
+            <p>Email: sd2756@nau.edu</p>
+            <p>Phone: (928)2251522</p>
+        </div>
+        <div>
+            <h2 class="margin-bottom"></h2>
+            <p>LinkedIn: linkedin.com/in/sravanthi-dandu</p>
+            <p>GitHub: github.com/dandu147</p>
+        </div>
+    </section>
+
+    <section class="experience">
+
+        <h2 class="margin-bottom border-bottom">Work Experience</h2>
+
+        <h3>Oncor Electric Delivery, North Texas, USA - Delivery Optimization Engineer, 2022 to 2023</h3>
+
+        <p class="margin-bottom">My responsibilities include working as a part of the release management team to develop operational, and
+            product documentation and assist when troubleshooting production problems</p>
+
+        <h3>Omics International Pvt Ltd, Hyderabad, India - Program Coordinator, 2021 to 2022</h3>
+
+        <p>1) Designed program implementation, maintenance plan, and website creation.</p>
+            <p>2) Organized and managed program development from conception through successful execution.</p>
+
+    </section>
+
+    <section class="Project Experience">
+
+        <h2 class="margin-bottom border-bottom">Project Experience</h2>
+
+        <h3 class="margin-bottom">WaAM Hypercare Development Project</h3>
+
+        <p>1) Providing crucial support within the release management team for the WaAM Hypercare Development Project,
+            ensuring seamless deployment activities from lower to production environments.</p>
+            <p>2) Maintaining and optimizing tools integral to process automation for efficient service release procedures</p>
+
+    </section>
+
+    <section class="education">
+
+        <h2 class="margin-bottom border-bottom">Education</h2>
+
+        <h3>MINA Institute of Engineering and Technology for Women - B-Tech, Miryalaguda, 2022</h3>
+
+        <h3>Sri Gayatri Junior College - Intermediate, Hyderabad, 2018</h3>
+
+        <h3>Pragathi High School - Schooling, Miryalaguda, 2016</h3>
+
+    </section>
+
+    <section>
+        <div class="margin-bottom">
+            <h2 class="margin-bottom border-bottom">Skills</h2>
+            <p>HTML, CSS, JavaScript, Core Java, C Language</p>
+        </div>
+
+        <div class="margin-bottom">
+            <h2 class="margin-bottom border-bottom">Databases</h2>
+            <p>My SQL</p>
+        </div>
+
+        <div class="margin-bottom">
+            <h2 class="margin-bottom border-bottom">Software Technology</h2>
+            <p>Atlassian Jira Suit</p>
+        </div>
+
+    </section>
+
+    <section style="margin-bottom: 30px;">
+        <div class="margin-bottom">
+            <h2 class="margin-bottom border-bottom">Extra Curricular Activities</h2>
+            <p>1) Best Debugger Awards for C programming </p>
+            <p>2) Achieved awards for Technical Quiz</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Last updated:
+            <span id="lastModified"></span>
+        </p>
+    </footer>
+    <script type="text/javascript">
+        var x = document.lastModified;
+        document.getElementById('lastModified').textContent = x;
+    </script>
+
+</body>
+
+</html>
