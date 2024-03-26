@@ -1,39 +1,92 @@
-Sravanthi Dandu
-Web Developer
-
-Email: sd2756@nau.edu
-
-Phone: (928)2251522
-
-LinkedIn: linkedin.com/in/sravanthi-dandu
-
-GitHub: github.com/dandu147
-
-Work Experience
-Oncor Electric Delivery, North Texas, USA - Delivery Optimization Engineer, 2022 to 2023
-My responsibilities include working as a part of the release management team to develop operational, and product documentation and assist when troubleshooting production problems
-
-Omics International Pvt Ltd, Hyderabad, India - Program Coordinator, 2021 to 2022
-Designed program implementation, maintenance plan, and website creation. Organized and managed program development from conception through successful execution
-
-Project Experience
-WaAM Hypercare Development Project
-Providing crucial support within the release management team for the WaAM Hypercare Development Project, ensuring seamless deployment activities from lower to production environments. Maintaining and optimizing tools integral to process automation for efficient service release procedures
-
-Education
-MINA Institute of Engineering and Technology for Women - B-Tech, Miryalaguda, 2022
-Sri Gayatri Junior College - Intermediate, Hyderabad, 2018
-Pragathi High School - Schooling, Miryalaguda, 2016
-Skills
-HTML, CSS, JavaScript, Core Java, C Language
-
-Databases
-My SQL
-
-Software Technology
-Atlassian Jira Suit
-
-Extra Curricular Activities
-Best Debugger Awards for C programming
-
-Last updated: 02/04/2024 21:46:27
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Food Delivery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #555;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 20px;
+        }
+        section {
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .food-item {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
+        .food-item img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-right: 10px;
+            float: left;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Online Food Delivery</h1>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Menu</a>
+        <a href="#">Order</a>
+        <a href="#">Contact</a>
+    </nav>
+    <section>
+        <div class="container">
+            <h2>Today's Special</h2>
+            <div class="food-item">
+                <h3>Burger</h3>
+                <p>A delicious burger with juicy patty and fresh veggies.</p>
+                <p>Price: $5.99</p>
+                <button>Add to Cart</button>
+            </div>
+            <div class="food-item">
+                <h3>Pizza</h3>
+                <p>A mouth-watering pizza topped with cheese and pepperoni.</p>
+                <p>Price: $8.99</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Food Delivery</p>
+    </footer>
+</body>
+</html>
