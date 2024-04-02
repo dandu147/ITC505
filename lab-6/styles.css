@@ -12,7 +12,7 @@ html {
 }
 
 header {
-    background-image: linear-gradient(to right, #468065, #0082c8, #0082c8, #66b2b6);
+    background-image: linear-gradient(to right, #80a091, #0e2e3f, #24719b, #575b5b);
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -34,7 +34,7 @@ h2 {
 }
 
 aside {
-    background-image: linear-gradient(to right, #468065, #0082c8, #0082c8, #66b2b6);
+    background-image: linear-gradient(to right, #80a091, #24719b, #575b5b);
     padding: 20px;
     flex: 1;
 }
@@ -72,7 +72,7 @@ button:hover {
 }
 
 .advertisement {
-    background-image: linear-gradient(to right, #468065, #0082c8, #0082c8, #66b2b6);
+    background-image: linear-gradient(to right, #80a091, #24719b, #575b5b);
     text-align: center;
     padding: 20px;
     flex: 1;
@@ -85,7 +85,7 @@ button:hover {
 
 
 footer {
-    background-image: linear-gradient(to right, #468065, #0082c8, #0082c8, #66b2b6);
+    background-image: linear-gradient(to right, #80a091, #0e2e3f, #24719b, #575b5b);
     color: #fff;
     padding: 10px;
     text-align: center;
