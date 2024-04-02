@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess a Number</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Header with Logo</title>
+        <style>
+            .logo img {
+                width: 200px;
+                /* Set the desired width here */
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <div class="logo">
+                <img src="https://i.ytimg.com/vi/0wHXNMRwBMg/hqdefault.jpg" alt="Logo">
+            </div>
+            <h1>Let's Test Your IQ Level......!</h1>
+        </header>
+        <div class="container">
+            <aside>
+                <nav>
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#">ABOUT</a></li>
+                        <li><a href="#">FAQ's</a></li>
+                        <li><a href="#">CONTACT</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <main>
+                <section id="game">
+                    <h2>Number Guessing Game</h2>
+                    <p>Guess a number between 1 and 100:</p>
+                    <input type="number" id="guessInput">
+                    <button onclick="checkGuess()">Check Guess</button>
+                    <p id="result"></p>
+                </section>
+            </main>
+            <div class="advertisement">
+                <marquee behavior="3" direction="left">
+                    <h2>Advertisement</h2>
+                </marquee>
+                <div style="margin: 10px 0px;">
+                    <a href="https://www.amazon.com/Apple-2024-MacBook-13-inch-Laptop/dp/B0CX23V2ZK/ref=sr_1_2_sspa?dib=eyJ2IjoiMSJ9.8xTtIvFud2Gpq6zpUSHQ5_8c2c23629qdHAE_2i9DqlNE7NyOnB2X_v5wQ3xVg6mz9P0vTX8EMIZf72SgNAPAeMXoyw92IoEZXHtxhJ2QVhdtdFrA-lFDzZ-pg-UA0QlcsK9TIW4YE5BaaXNM8pLTr5bbv2vL3-AX8J2GRfJfcJyrHpWVwwpKf08fjzSzwIC4Zf5BkxdN0GanNVgSERzEtMjT2IZM0WWp4fj4NMQ8KI.9YCW8BEEEomAUkc7KzOe2_68T1nzGdlt4MBOfSSTnH0&dib_tag=se&keywords=macbook&qid=1712012128&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"
+                        target="_blank">
+                        <img src="https://m.media-amazon.com/images/I/71-D1xCuVwL._AC_SX679_.jpg">
+                    </a>
+                </div>
+
+                <div style="margin: 10px 0px;">
+                    <a href="https://www.amazon.com/SAMSUNG-Unlocked-Smartphone-Foldable-One-Hand/dp/B0C63GXC5L/ref=sr_1_3?crid=GW0HJN5BI3ZL&dib=eyJ2IjoiMSJ9.JvXfL61wShuyLJSDaOzh_9dCVm7yyGlIjpe8MK2I0Ex-qDGWcNn-OWy1oc8sUUPzSdy-F9r7-yzPn1Fzv1MU8cuMUKSZ6wqKCPcsf-Ysv5DNFeLEC7cdyFKQ1vOgGaOoibWtvYvPnBWIMJYkaAMsnxKAaX34gefUoQhibk7Dc_b44z-UqlKhJO57cNY4gqmcSmKegfIZGAyjFHhqPEHWBb4cXR65IxnParTLoYirZdU.7FL4ZfVXQdsGXGIx8iir_vcLzXmeOCSbA2fxEDDNGTY&dib_tag=se&keywords=samsung+flip&qid=1712014718&sprefix=samsung+flip%2Caps%2C140&sr=8-3"
+                        target="_blank">
+                        <img height="100px" src="https://m.media-amazon.com/images/I/71I-x2G8dBL._AC_SX679_.jpg">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <footer>
+            <p>Addendum:</p>
+            <p>This page now hosts a Number Guessing Game. The player is prompted to guess a number between 1 and 100.
+                After submitting their guess, the game checks if it matches the randomly generated number.
+                If the guess is correct, the player wins; otherwise, they are prompted to try again.
+                The game also provides feedback on whether the guess was too low or too high.</p>
+            <p>Last updated:
+                <span id="lastModified"></span>
+            </p>
+        </footer>
+        <script src="script.js"></script>
+        <script type="text/javascript">
+            var x = document.lastModified;
+            document.getElementById('lastModified').textContent = x;
+
+            // Generate random number between 1 and 100
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+            function checkGuess() {
+                const guessInput = document.getElementById('guessInput');
+                const guess = parseInt(guessInput.value);
+
+                if (guess === randomNumber) {
+                    document.getElementById('result').innerText = `Congratulations! You guessed the correct number: ${randomNumber}`;
+                } else if (guess < randomNumber) {
+                    document.getElementById('result').innerText = `Too low! Try a higher number.`;
+                } else {
+                    document.getElementById('result').innerText = `Too high! Try a lower number.`;
+                }
+            }
+        </script>
+    </body>
+
+</html>
