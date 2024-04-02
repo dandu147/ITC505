@@ -224,6 +224,7 @@
             } else {
                 resultElement.innerHTML = '<p>Incorrect! Game Ended!</p>';
                 nextButton.style.display = 'none';
+                window.location.reload()
             }
             resultElement.style.display = "block";
             document.querySelectorAll('.answer').forEach(button => {
