@@ -172,7 +172,7 @@
                 question: 'Level 8: Inside the hidden cave, you find the treasure! Congratulations! You have completed the treasure hunt.',
                 answers: ['Start over'],
                 correctAnswer: 'Start over',
-                image: 'https://media.istockphoto.com/id/1250103451/photo/scavenger-hunt-this-way-signpost-in-lush-forest-woodland.jpg?s=612x612&w=0&k=20&c=Up2tNyKDMb05avVhSWubLboVZ8WyjotR07_ntUAqznE='
+                image: 'https://s3.amazonaws.com/www.explorersweb.com/wp-content/uploads/2022/09/30041336/shutterstock_606386231.jpg'
             }
         ];
 
@@ -218,6 +218,9 @@
         }
 
         function selectAnswer(selectedAnswer, correctAnswer) {
+            if (correctAnswer == 'Start over') {
+                location.reload();
+            }
             if (selectedAnswer === correctAnswer) {
                 resultElement.innerHTML = '<p>Correct!</p>';
                 nextButton.style.display = 'block';
