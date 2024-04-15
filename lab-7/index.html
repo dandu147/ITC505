@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mad Libs Game</title>
+    <style>
+        /* Some basic CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>My Mad Libs Game</h1>
+        <p>Fill in the blanks with the requested words:</p>
+        <form id="madlib-form">
+            <label for="noun">Noun:</label>
+            <input type="text" id="noun" required><br>
+            <label for="pronoun">Pronoun:</label>
+            <input type="text" id="pronoun" required><br>
+            <label for="verb1">Verb:</label>
+            <input type="text" id="verb1" required><br>
+            <label for="adjective1">Adjective:</label>
+            <input type="text" id="adjective1" required><br>
+            <label for="verb2">Another Verb:</label>
+            <input type="text" id="verb2" required><br>
+            <label for="adjective2">Another Adjective:</label>
+            <input type="text" id="adjective2" required><br>
+            <button type="submit">Generate Story</button>
+        </form>
+        <div id="story" style="display: none;">
+            <h2>My Mad Libs Story:</h2>
+            <p id="story-content"></p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code for Mad Libs game functionality
+        document.getElementById('madlib-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get input values
+            const noun = document.getElementById('noun').value;
+            const pronoun = document.getElementById('pronoun').value;
+            const verb1 = document.getElementById('verb1').value;
+            const adjective1 = document.getElementById('adjective1').value;
+            const verb2 = document.getElementById('verb2').value;
+            const adjective2 = document.getElementById('adjective2').value;
+
+            // Generate the story
+            const story = `${noun} went to the ${pronoun} and ${verb1} ${adjective1}. Then, ${noun} decided to ${verb2} to ${adjective2} park.`;
+
+            // Display the story
+            document.getElementById('story-content').textContent = story;
+            document.getElementById('story').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>
