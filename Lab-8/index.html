@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Web Form</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #8d3051;
+        }
+
+        form {
+            background-color: #4f666c;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+            border: 1px solid #d11c1c;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: rgb(97, 38, 38);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            margin-top: 5px;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var errorDiv = document.getElementById("error-msg");
+            var errors = [];
+
+            if (firstName.trim() === "") {
+                errors.push("Please enter your first name.");
+            }
+
+            if (lastName.trim() === "") {
+                errors.push("Please enter your last name.");
+            }
+            if (email.trim() === "") {
+                errors.push("Please enter your email address.");
+            } else if (!emailRegex.test(email)) {
+                errors.push("Please enter a valid email address.");
+            }
+
+            if (password.trim() === "") {
+                errors.push("Please enter a password.");
+            }
+
+            if (confirmPassword.trim() === "") {
+                errors.push("Please confirm your password.");
+            } else if (password !== confirmPassword) {
+                errors.push("Passwords do not match.");
+            }
+
+            if (errors.length > 0) {
+                errorDiv.innerHTML = errors.join("<br>");
+                return false;
+            } else {
+                errorDiv.innerHTML = "";
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2 style="text-align: center;">Secure Web Form</h2>
+    <form onsubmit="return validateForm()">
+        <label for="firstName">First Name:</label><br>
+        <input type="text" id="firstName" name="firstName"><br>
+
+        <label for="lastName">Last Name:</label><br>
+        <input type="text" id="lastName" name="lastName"><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br>
+
+        <label for="confirmPassword">Confirm Password:</label><br>
+        <input type="password" id="confirmPassword" name="confirmPassword"><br>
+
+        <div id="error-msg" class="error"></div><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
