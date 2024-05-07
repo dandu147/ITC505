@@ -13,66 +13,7 @@
             width: 100%;
         }
 
-        body {
-            background-image: url('background.jpg');
-            /* Default background image */
-            background-size: cover;
-            background-position: center;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(5, 50px);
-            grid-template-rows: repeat(5, 50px);
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-            /* Center alignment */
-            margin-top: 50px;
-        }
-
-        .cell {
-            width: 50px;
-            height: 50px;
-            border: 1px solid rgb(239, 155, 155);
-            background-color: #85a1ac;
-        }
-
-        .cell.active {
-            background-color: #c79797;
-        }
-
-        .heading {
-            text-align: center;
-            color: white;
-            margin-top: 20px;
-        }
-
-        .button {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .button:hover {
-            background-color: #0056b3;
-        }
-
-        .instructions {
-            text-align: center;
-            color: rgb(183, 210, 179);
-            margin-top: 20px;
-        }
-
-        /* Modal styles */
+        /* CSS styles for the modal */
         .modal {
             display: none;
             position: fixed;
@@ -82,7 +23,8 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
         .modal-content {
@@ -91,6 +33,8 @@
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
+            max-width: 400px;
+            text-align: center;
         }
 
         .close {
@@ -107,208 +51,98 @@
             cursor: pointer;
         }
 
-        footer {
-            background-image: linear-gradient(to right, #80a091, #0e2e3f, #24719b, #575b5b);
-            color: #fff;
-            padding: 10px;
+        .button-container {
             text-align: center;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .instructions {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .gameHeader {
+            display: flex;
+            align-items: center;
+            flex-flow: column;
+            margin-bottom: 2%;
         }
     </style>
 </head>
-<header>
-    <div class="logo">
-        <img src="data:image/png;base64,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"
-            alt="Logo">
-    </div>
-    <h1>Let's Play the Game</h1>
-</header>
 
 <body>
-    <h1 class="heading">Lights Out</h1>
+    <div style="margin-top: 12%;">
+        <div class="gameHeader">
+            <h1 class="heading">Lights Out</h1>
+            <button class="button" onclick="openModal()">Choose Level</button>
+        </div>
 
-    <div class="container" id="container"></div>
+        <!-- <div class="container" id="container"></div> -->
+        <div class="instructions">Click on the choose level button to select the level. Next it redirects you to play
+            the
+            real game!</div>
 
-    <button class="button" onclick="playAgain()">Play Again</button>
-
-    <button class="button" onclick="openInstructions()">Game Instructions</button>
-
-    <button class="button" onclick="Addendum()">Addendum</button>
-
-    <div id="instructionsModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeInstructions()">&times;</span>
-            <h2>Game Instructions</h2>
-            <p>Lights Out is a puzzle game played on a grid of cells. The grid consists of white and black cells,
-                representing lights. The goal of the game is to turn off all the lights on the grid.</p>
-            <p>Clicking on any cell toggles its state (on/off). When you click on a cell, it also toggles the state of
-                its adjacent cells (above, below, left, and right). Your objective is to find the right combination of
-                clicks to turn off all the lights.</p>
-            <p>Once all lights are turned off, you win the game! If you get stuck, you can click the "Play Again" button
-                to reset the grid and start over.</p>
-            <h2>Tips and Tricks</h2>
-            <p>Start from the edges: Since clicking on a cell toggles the state of adjacent cells, starting from the
-                edges can help you influence a larger portion of the grid with fewer clicks.</p>
-            <p>Work towards the center: After toggling cells on the edges, try to work towards the center of the grid.
-                This can help you create a more systematic approach to turning off all the lights.</p>
-            <p>Look for patterns: Pay attention to patterns of lights on the grid. Sometimes, toggling a specific cell
-                can affect multiple other cells in predictable ways, helping you turn off more lights with fewer clicks.
-            </p>
-            <p>Use trial and error: Don't be afraid to experiment with different sequences of clicks. If you get stuck,
-                try undoing your last few clicks or starting over with the "Play Again" button.</p>
-            <p>Take breaks if needed: If you're finding the game challenging, take breaks and come back to it later with
-                a fresh perspective. Sometimes, stepping away for a bit can help you see new strategies or patterns.</p>
-            <p>Practice makes perfect: Like many puzzles, practice is key to improving your skills. The more you play,
-                the better you'll become at recognizing patterns and finding efficient solutions.</p>
-            <p>Observe the changes: Pay attention to how each click affects the state of the grid. This observation can
-                help you develop a better understanding of how the lights interact with each other and inform your
-                strategy.</p>
-            <p>Stay patient: Lights Out can be a challenging game, especially as the grid size increases. Stay patient
-                and don't get discouraged if you don't solve it right away. With persistence and practice, you'll
-                improve over time.</p>
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p>Select Game Level:</p>
+                <select id="level">
+                    <option value="Easy">Easy</option>
+                    <option value="Hard">Hard</option>
+                </select>
+                <button class="button" onclick="startGame()">
+                    Start Game
+                </button>
+                <!-- <button class="button" onclick="startGame()">Start Game</button> -->
+            </div>
         </div>
 
     </div>
-    <div id="addendumModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeAddendun()">&times;</span>
-            <h2>Addendum</h2>
-            <p>Describe your process, creative choices, challenges faced, and insights gained here.</p>
-            <p>This game project was a valuable learning experience. Here are some key points to consider:</p>
-            <ol>
-                <li><strong>Development Background:</strong> The project was initiated to explore JavaScript, CSS,
-                    and
-                    HTML development.</li>
-                <li><strong>Learning Goals:</strong> I aimed to gain hands-on experience in web development and
-                    JavaScript programming.</li>
-                <li><strong>Technologies Used:</strong> The game was developed using JavaScript for interactivity,
-                    CSS
-                    for styling, and HTML for structure.</li>
-                <li><strong>Development Process:</strong> I have followed a structured approach, starting with
-                    planning
-                    and wireframing before diving into coding.</li>
-                <li><strong>Challenges Faced:</strong> Overcoming challenges, such as implementing the game logic
-                    and
-                    ensuring responsiveness, was a significant part of the development journey.</li>
-                <li><strong>Problem Solving:</strong> I have utilized online resources, forums, and documentation to
-                    solve technical issues encountered during development.</li>
-                <li><strong>Design Choices:</strong> The design choices were influenced by simplicity, ensuring an
-                    intuitive user interface and enjoyable gameplay.</li>
-                <li><strong>Responsiveness:</strong> The game was designed to adapt gracefully to various screen
-                    sizes
-                    and orientations, enhancing the user experience.</li>
-                <li><strong>Code Structure:</strong> The code was organized into modular functions and classes to
-                    promote maintainability and readability.</li>
-                <li><strong>Code Optimization:</strong> I have optimized critical parts of the code for better
-                    performance, resulting in smooth gameplay.</li>
-                <li><strong>Future Enhancements:</strong> Future plans include adding levels, customizable themes,
-                    and a
-                    leaderboard feature for more engaging gameplay.</li>
-                <li><strong>Testing:</strong> Rigorous testing was conducted on different browsers and devices to
-                    ensure
-                    cross-browser compatibility and functionality.</li>
-                <li><strong>Feedback:</strong> Valuable feedback from testers was used to fine-tune the game and fix
-                    any
-                    identified bugs.</li>
-                <li><strong>Resources:</strong> Online tutorials, developer documentation, and open-source libraries
-                    played a crucial role in our development journey.</li>
-                <li><strong>Acknowledgments:</strong> I would like to express gratitude to our mentors and the web
-                    development community for their support and inspiration.</li>
-            </ol>
-            <span class="close" onclick="Addendum()">&times;</span>
-        </div>
-    </div>
-    <footer>
-        <p>Last updated:
-            <span id="lastModified"></span>
-        </p>
-    </footer>
-    <script type="text/javascript">
-        var x = document.lastModified;
-        document.getElementById('lastModified').textContent = x;
-    </script>
+
+
+    <!-- JavaScript code -->
     <script>
-        const container = document.getElementById('container');
-        const gridSize = 5;
+        // Function to open the modal
+        function openModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'block';
+        }
 
-        // Create grid
-        for (let i = 0; i < gridSize; i++) {
-            for (let j = 0; j < gridSize; j++) {
-                const cell = document.createElement('div');
-                cell.classList.add('cell');
-                container.appendChild(cell);
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById('myModal');
+            modal.style.display = 'none';
+        }
+
+        // Function to start the game with selected level
+        function startGame() {
+            var selectedLevel = document.getElementById("level").value;
+            var url;
+            if (selectedLevel === "Hard") {
+                url = "./game.html?level=hard";
+            } else {
+                url = "./game.html?level=easy";
             }
+            window.location.href = url;
         }
 
-        // Add event listeners to cells
-        const cells = document.querySelectorAll('.cell');
-        cells.forEach(cell => {
-            cell.addEventListener('click', () => {
-                toggleCell(cell);
-                toggleAdjacentCells(cell);
-                checkWin();
-            });
-        });
 
-        function toggleCell(cell) {
-            const val = [...cell.classList];
-            if (!val.includes('active')) {
-                cell.classList.toggle('active');
-            }
-        }
-
-        function toggleAdjacentCells(cell) {
-            const cellIndex = Array.from(cells).indexOf(cell);
-            const adjacentIndices = getAdjacentIndices(cellIndex);
-            adjacentIndices.forEach(index => {
-                if (index >= 0 && index < cells.length) {
-                    toggleCell(cells[index]);
-                }
-            });
-        }
-
-        function getAdjacentIndices(index) {
-            const indices = [];
-            const gridSize = Math.sqrt(cells.length);
-            const row = Math.floor(index / gridSize);
-            const col = index % gridSize;
-
-            if (row > 0) indices.push(index - gridSize); // Top
-            if (row < gridSize - 1) indices.push(index + gridSize); // Bottom
-            if (col > 0) indices.push(index - 1); // Left
-            if (col < gridSize - 1) indices.push(index + 1); // Right
-
-            return indices;
-        }
-
-        function checkWin() {
-            const activeCells = document.querySelectorAll('.cell.active');
-            console.log(activeCells)
-            if (activeCells.length === 25) {
-                alert('Congratulations! You won!');
-            }
-        }
-
-        function playAgain() {
-            cells.forEach(cell => {
-                cell.classList.remove('active');
-            });
-        }
-
-        // Modal functions
-        function openInstructions() {
-            document.getElementById('instructionsModal').style.display = 'block';
-        }
-
-        function Addendum() {
-            document.getElementById('addendumModal').style.display = 'block';
-        }
-
-        function closeInstructions() {
-            document.getElementById('instructionsModal').style.display = 'none';
-        }
-
-        function closeAddendun() {
-            document.getElementById('addendumModal').style.display = 'none';
+        // Function to create the game grid
+        function createGrid(level) {
+            // Your existing createGrid function code here...
         }
     </script>
 </body>
